@@ -1,0 +1,92 @@
+{% load static %}
+
+
+{% include 'buyingview/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/help-support.css' %}" />
+
+
+
+<!-- For heading  -->
+<div id="heading" class=" mt-5">
+    
+    <h1 class="text-warning bg-dark">What do you need help with?</h1>
+    <p class="text-white bg-dark">Take help from the pro</p>
+</div>
+
+<!-- selection section -->
+
+
+<div class="selection-area container">
+    <div class="inner-select-area mt-3">
+        <h1>how you want to get help ?</h1>
+        
+        
+    </div>
+</div>
+
+
+
+<!-- choose the subject section -->
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="selection-area container">
+        <div class="inner-select-area mt-3">
+
+            <div class="text-area">
+                <label>Enter Email</label>
+                <input type="email" name="email" placeholder="Enter your email...." class="form-control col-sm-5">
+            </div>
+            <br>
+            
+            <!-- <div class="text-area">
+                <label>Subject</label>
+                <input type="text" name="subject" placeholder="Enter your subject...." class="form-control">
+            </div> -->
+
+            <!-- <div class="text-area">
+                <label>Enter Email</label><br>
+                <input type="email" name="email" placeholder="Enter your email...." class="form-control"></br>
+            </div> -->
+            <div class="text-area">
+                <textarea name="description" id="" cols="" rows="" placeholder="Write your problem"></textarea>
+            </div>
+            <div class="text-area">
+                
+                <label for="file-up" id class="up-file">Upload Files</label>
+                <input id="file-up" type="file" style="visibility: hidden;" name="attachment" placeholder="Only PDF, DOCX">
+                
+            </div>
+            </br>
+            <div class="text-area">
+                
+                <label for="img-upload" class="up-file">Upload Images</label>
+                <input id="img-upload" type="file" style="visibility: hidden;" name="image_attachment">
+                
+            </div><br>
+
+            <select class="select" name="subject" id="">
+                {% if support_category|length > 0 %}    
+                    {% for sc in support_category %}
+                        <option value="{{ sc.title }}">{{ sc.title }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="No Category Found">No Category Found</option>>
+                {% endif %}
+                
+            </select>
+
+
+            <div class="button mt-4">
+                <button class="">Send Message</button>
+            </div>
+            
+        </div>       
+
+
+    </div>
+</form>
+
+
+{% include 'buyingview/buying_footer.html' %}

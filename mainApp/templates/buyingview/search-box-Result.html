@@ -1,0 +1,568 @@
+{% load static %}
+{% load custom_filter %}
+
+
+{% include 'buyingview/header.html' %}
+<script src="{% static 'js/main-buyer-view.js' %}" defer></script>
+
+<link rel="stylesheet" href="{% static 'css/search-box-result.css' %}">
+
+
+<!-- not found services container -->
+
+
+<div class="container">
+    <div class="not___found___main____div">
+        <div class="not___found___image d-flex justify-content-center">
+            <img src="{% static 'images/goku.png' %}">
+        </div>
+        <div class="invalid___search">
+            <h2 class="text-center">Not Found Any Services</h2>
+            <h5 class="text-center text-muted">Try a new search or get a free quote for your project</h5>
+            <h5 class="text-center text-muted">from our community of freelancers.</h5>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- mobile search box -->
+  <div class="container"> 
+    <div class="all___search___div">
+        <div class="main_____Searchbar ">
+            <div class="mobile___Search__bar">
+                <form>
+                    <input type="text" placeholder="search here.." required>
+                </form>
+            </div>
+            <div class="search______icon">
+                <p><a href="#"><span class="iconify" data-icon="fa-solid:search" style="color: #2195ea;"></span></a></p>
+            </div>
+        </div>
+    </div>
+  </div><br>
+
+  <!-- mobile search resutls -->
+  <div class="container">
+    <div class="mobile____________show_________resutls d-flex justify-content-center">
+        <p>
+            Showing 1-48 of 4835 results for <span class="fw-bold">RESULTS</span>
+        </p>
+    </div>
+  </div>
+
+
+  <!-- valid search result content -->
+
+  <div class="suggestedResult">
+    <div class="container">
+      <div class="validSearchResult">
+        <ul>
+          <li class="fw-bold">
+            Suggested
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              flutter app
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              flutter developer
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              flutter app development
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              flutter web
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              react native
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              flutter development
+            </button>
+          </li>
+          <li>
+            <button type="button" class="btn-sm suggestedBTN">
+              react
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- fliter and sort button for  mobile view -->
+  <div class="container filter-sort-button">
+    <ul>
+      <li>
+        <button class="filter-button"><span class="iconify" data-icon="bi:filter-left" style="color: #1dbf73;"></span>
+          Filter</button>
+      </li>
+      <li>
+        <button class="sort-button"><span class="iconify" data-icon="cil:sort-descending"
+            style="color: #1dbf73;"></span> Sort</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Subscription checkbox -->
+  <div class="container subscripton-checkbox">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Subscription Services </label>
+    </div>
+  </div>
+
+
+  <!-- show result gigs -->
+  <div class="container show-result-gigs">
+    <h2>Results for "....."</h2><br>
+    <div class="showingResultgigs">
+      <ul>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdownButoon fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Category
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdownButoon fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Service Options
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdownButoon fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Seller Details
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdownButoon fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Budget
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdownButoon fw-bold dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Delivery Time
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="pro___services">
+            <label class="form-check-label" for="pro___services">Pro Services </label>
+          </div>
+        </li>
+        <li>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="subs___servies">
+            <label class="form-check-label" for="subs___servies">Subscription Services </label>
+          </div>
+        </li>
+        <li>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="online____seller">
+            <label class="form-check-label" for="online____seller">Online Sellers </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- services available section   -->
+  <div class="container">
+    <div class="services-available">
+      <ul>
+        <li>
+          4,459 services available
+        </li>
+        <li>
+          <div class="dropdown sortby-dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Sort by <span class="fw-bold">Relevance</span>
+            </button>
+            <ul class="dropdown-menu dropMenuItem" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+
+<div class="col-md-6 col-lg-3 mb-4 premium-card" data-aos="fade-up">
+    <div class="card main-card-for-offer">
+        
+        <div class="premium-logo">
+                <img src= "{% static 'images/Marketage-Professional.png' %}" >            
+            </div>
+    <div class= "for-card-inner-img-slider">
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-5.jpg' %}" >              
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-2.jpg' %}" >                    
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-6.jpg' %}" >                    
+            </div>
+        </a>
+           
+    </div>
+        
+       
+
+
+        <div class="card-body">
+        <a href=""> 
+            <h5 class="card-title">I will convert psd to html responsive website</h5>  
+        </a>
+
+        <div class="category-tag">
+
+            <p>Web Design</p>
+
+            <div class="category-for-right">                  
+                <div class= "click-on-offer">
+                    <p>2,595</p>
+                    <p>Clicks</p>                        
+                </div>
+
+            </div>
+        </div>
+
+        <div class= "for-seller-level-star">
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star black-star"></i>
+        </div>
+        <hr>
+
+        <div class="offer-price">
+            <p>Starting At</p>
+            <p>BDT <span>15748</span> </p>
+        </div>
+        
+        </div>
+    </div>
+</div> 
+    
+<div class="col-md-6 col-lg-3 mb-4 premium-card" data-aos="fade-up">
+    <div class="card main-card-for-offer">
+        
+        <div class="premium-logo">
+                <img src= "{% static 'images/Marketage-Professional.png' %}" >            
+            </div>
+    <div class= "for-card-inner-img-slider">
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-5.jpg' %}" >              
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-2.jpg' %}" >                    
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-6.jpg' %}" >                    
+            </div>
+        </a>
+           
+    </div>
+        
+       
+
+
+        <div class="card-body">
+        <a href=""> 
+            <h5 class="card-title">I will convert psd to html responsive website</h5>  
+        </a>
+
+        <div class="category-tag">
+
+            <p>Web Design</p>
+
+            <div class="category-for-right">                  
+                <div class= "click-on-offer">
+                    <p>2,595</p>
+                    <p>Clicks</p>                        
+                </div>
+
+            </div>
+        </div>
+
+        <div class= "for-seller-level-star">
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star black-star"></i>
+        </div>
+        <hr>
+
+        <div class="offer-price">
+            <p>Starting At</p>
+            <p>BDT <span>15748</span> </p>
+        </div>
+        
+        </div>
+    </div>
+</div> 
+    
+<div class="col-md-6 col-lg-3 mb-4 premium-card" data-aos="fade-up">
+    <div class="card main-card-for-offer">
+        
+        <div class="premium-logo">
+                <img src= "{% static 'images/Marketage-Professional.png' %}" >            
+            </div>
+    <div class= "for-card-inner-img-slider">
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-5.jpg' %}" >              
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-2.jpg' %}" >                    
+            </div>
+        </a>
+
+        <a href="">
+            <div class="img-on-card-body">
+                <img src= "{% static 'images/bg-6.jpg' %}" >                    
+            </div>
+        </a>
+           
+    </div>
+        
+       
+
+
+        <div class="card-body">
+        <a href=""> 
+            <h5 class="card-title">I will convert psd to html responsive website</h5>  
+        </a>
+
+        <div class="category-tag">
+
+            <p>Web Design</p>
+
+            <div class="category-for-right">                  
+                <div class= "click-on-offer">
+                    <p>2,595</p>
+                    <p>Clicks</p>                        
+                </div>
+
+            </div>
+        </div>
+
+        <div class= "for-seller-level-star">
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star yellow-star"></i>
+            <i class="fas fa-star black-star"></i>
+        </div>
+        <hr>
+
+        <div class="offer-price">
+            <p>Starting At</p>
+            <p>BDT <span>15748</span> </p>
+        </div>
+        
+        </div>
+    </div>
+</div> 
+    
+    <div class="col-md-6 col-lg-3 mb-4 premium-card" data-aos="fade-up">
+        <div class="card main-card-for-offer">
+            
+            <div class="premium-logo">
+                    <img src= "{% static 'images/Marketage-Professional.png' %}" >            
+                </div>
+        <div class= "for-card-inner-img-slider">
+            <a href="">
+                <div class="img-on-card-body">
+                    <img src= "{% static 'images/bg-5.jpg' %}" >              
+                </div>
+            </a>
+
+            <a href="">
+                <div class="img-on-card-body">
+                    <img src= "{% static 'images/bg-2.jpg' %}" >                    
+                </div>
+            </a>
+
+            <a href="">
+                <div class="img-on-card-body">
+                    <img src= "{% static 'images/bg-6.jpg' %}" >                    
+                </div>
+            </a>
+            
+        </div>
+            
+        
+
+
+            <div class="card-body">
+            <a href=""> 
+                <h5 class="card-title">I will convert psd to html responsive website</h5>  
+            </a>
+
+            <div class="category-tag">
+
+                <p>Web Design</p>
+
+                <div class="category-for-right">                  
+                    <div class= "click-on-offer">
+                        <p>2,595</p>
+                        <p>Clicks</p>                        
+                    </div>
+
+                </div>
+            </div>
+
+            <div class= "for-seller-level-star">
+                <i class="fas fa-star yellow-star"></i>
+                <i class="fas fa-star yellow-star"></i>
+                <i class="fas fa-star yellow-star"></i>
+                <i class="fas fa-star yellow-star"></i>
+                <i class="fas fa-star black-star"></i>
+            </div>
+            <hr>
+
+            <div class="offer-price">
+                <p>Starting At</p>
+                <p>BDT <span>15748</span> </p>
+            </div>
+            
+            </div>
+        </div>
+    </div> 
+        
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+{% include 'buyingview/buying_footer.html' %}
+
+
+
+

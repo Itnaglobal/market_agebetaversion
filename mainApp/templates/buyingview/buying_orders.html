@@ -1,0 +1,202 @@
+{% load static %}
+
+{% load custom_filter %}
+{% include 'buyingview/header.html' %}
+
+
+    <!--main css for buyer order -->
+    <link rel="stylesheet" href=  "{% static 'css/buyer-order.css' %}" />
+
+    <link rel="stylesheet" href=  "{% static 'css/make-payment-for-buyer.css' %}" />
+
+    <script src="{% static 'js/arko-header.js' %}" defer></script>
+
+    <script src="{% static 'js/buying-order-arko.js' %}" defer></script>
+
+
+    
+    
+  <div class="tab-view container d-flex mt-5">
+
+      <p class="place-order">PLACED ORDER</p>
+
+      <p class="ongoing-project">ONGOING PROJECTS <small class="badge bg-secondary">{{ delivered_orders }}</small></p>
+
+      <p class="premium-order">PREMIUM ORDER</p>
+
+
+  </div>
+
+
+
+<!-- for placed order -->
+  <div class="order-details-for-payment container for-placed-order mb-5">
+
+    <div class="order-list table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="align-middle for-name">OFFER TITLE</th>
+            <th scope="col" class="align-middle for-name">BUYER NAME</th>
+            <th scope="col" class="align-middle for-name">SELLER NAME</th>
+            <th scope="col" class="align-middle">GRAND TOTAL</th>
+            <th scope="col" class="align-middle text-center">ACTION</th>
+            <th scope="col" class="align-middle"></th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+        {% for order in orders %}
+        {% if order.order_status != "DELIVERED" %}
+            <tr>
+              <td scope="row" class="align-middle for-width for-name">
+                {{ order.package.offer.offer_title }}
+              </td>
+              <td class="align-middle for-name">{{ order.user }}</td>
+              <td class="align-middle for-name">{{ order.seller }}</td>
+              <td class="align-middle">BDT  {{ order.grand_total }}</td>
+              {% if order.paid == False %}
+                <td class="align-middle text-center">
+                  <a href="{% url 'OrderDetails' order.id order.slug %}" class="button make-payment align-middle text-center">
+                    <button class="make-payment">
+                      Make payment
+                    </button>
+                  </a>
+                </td>
+              {% else %}
+              <td class="align-middle">
+                <div class="button text-center align-middle">
+                  <span class="review-button align-middle text-center review__btnPrimary">
+                    Paid
+                  </span>
+                  
+                </div>
+              </td>
+              {% endif %}
+              <td class="align-middle">
+                <div class="button text-center align-middle">
+                  <span class="review-button align-middle text-center ">
+                    {{ order.order_status }}
+                    {% if order.order_status == "COMPLETED" and order.rated == False %}
+                      <a href="{% url 'ReviewOffer' order.id %}" class="button make-payment align-middle text-center">Review Seller</a>
+                    {% else %}{% endif %}
+                  </span>
+                </div>
+              </td>
+            </tr>
+            {% endif %}
+          {% endfor %}  
+        </tbody>  
+<!-- last total amount -->
+      </table>
+    </div>
+
+  </div>
+
+
+
+<!-- for ongoing project -->
+
+<div class="order-details-for-payment container for-ongoing mb-5">
+
+  <div class="order-list table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="align-middle for-name">OFFER TITLE</th>
+          <th scope="col" class="align-middle for-name">SELLER NAME</th>
+          <th scope="col" class="align-middle ">GRAND TOTAL</th>
+          <th scope="col" class="align-middle text-center"></th>
+          <th scope="col" class="align-middle text-center">ACTION</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for item in seller_submit %}
+          {% if item.checkout.order_status == "DELIVERED" %}
+            <tr>
+              <td scope="row" class="align-middle for-name">{{ item.checkout.package.offer.offer_title }}</td>
+              <td class="align-middle for-name">{{ item.checkout.seller }}</td>
+              <td class="align-middle">BDT {{ item.checkout.total }}</td>
+              <td class="align-middle">
+                <div class="button text-center align-middle">
+                  <span class="review-button align-middle text-center ">
+                    {{ item.checkout.order_status }}
+                  </span>
+                </div>
+              </td>
+              <td class="align-middle text-center">
+                <a href="{% url 'buyer-orders' item.checkout.id %}" class="button align-middle text-center ">
+                  <button class="view">
+                    View
+                  </button>
+                </a>
+              </td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>  
+    </table>
+  </div>
+
+</div>
+
+
+<!-- for premium offers -->
+
+<div class="order-details-for-payment container for-premium  mb-5">
+
+    <div class="order-list table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="align-middle for-name">DATE</th>
+            <th scope="col" class="align-middle for-name">TRANSACTION ID</th>
+            <th scope="col" class="align-middle ">PACKAGE TITLE</th>
+            <th scope="col" class="align-middle ">DURATION</th>
+            <th scope="col" class="align-middle text-center">TOTAL</th>
+            <th scope="col" class="align-middle text-center">STATUS</th>
+            <th scope="col" class="align-middle text-center">ACTION</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          {% for item in premium_orders %}
+            
+              <tr>
+                <td scope="row" class="align-middle for-name">{{ item.created_at }}</td>
+                <td class="align-middle for-name">{{ item.tran_id }}</td>
+                <td class="align-middle">{{ item.pkg.pkg_title }}</td>
+                <td class="align-middle">3 DAYS</td>
+                <td class="align-middle">BDT {{ item.total }}</td>
+                <td class="align-middle">
+                  <div class="button text-center align-middle">
+                    <span class="review-button align-middle text-center ">
+                      {{ item.status }}
+                    </span>
+                  </div>
+                </td>
+                <td class="align-middle text-center">
+                {% if item.is_paid == False %}
+                  <a href="{% url 'PremiumPayment' item.id %}" class="button align-middle text-center ">
+                    <button class="view">
+                      PAY NOW
+                    </button>
+                  </a>
+                  {% else %}
+                    <p class="badge bg-warning" style="margin-bottom: 0px">PAID</p>
+                  {% endif %}
+                </td>
+              </tr>
+          
+          {% endfor %}
+        </tbody>  
+      </table>
+    </div>
+  
+</div>
+
+
+
+{% include 'buyingview/buying_footer.html' %}

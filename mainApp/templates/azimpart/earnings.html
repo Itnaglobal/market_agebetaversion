@@ -1,0 +1,192 @@
+{% include 'wasekPart/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/earnings.css' %}"/>
+
+<div class="container">
+    <div class="earnings___header">
+        <p class="earning">Earnings</p>
+        <p>Total earnings : <span class="fw-bold badge bg-primary">{{ seller_details.selleraccount.wallet }} BDT</span></p>
+    </div>
+
+    <div class="net__income__status">
+        <!-- net income part -->
+        <div class="net__income">
+            <p class="text-muted">Net Income</p>
+            <p class="amount">{{ seller_details.selleraccount.wallet }} BDT</p>
+        </div>
+
+        <!-- withdraw -->
+        <div class="net__income">
+            <a href="#">
+            <p class="text-muted">withdrawn</p>
+            <p class="amount">0 BDT</p>
+            </a>
+        </div>
+
+        <!-- used for purchases -->
+        <div class="net__income">
+            <a href="#">
+            <p class="text-muted">Used For Purchases</p>
+            <p class="amount">0 BDT</p>
+            </a>
+        </div>
+        
+        <!-- pending clearence -->
+        <div class="net__income">
+            <a href="#">
+            <p class="text-muted">Used For Purchases</p>
+            <p class="amount">0 BDT</p>
+            </a>
+        </div>
+
+        <!-- available for withdrawal -->
+        <div class="net__income">
+            <p class="text-muted">Used For Purchases</p>
+            <p class="amount">0 BDT</p>
+        </div>
+    </div>
+
+    <div class="withdraw__option">
+        <p class="mx-1">WITHDRAW</p>
+        <!-- <p class="mx-1"><a href="#">
+            <span class="iconify" data-icon="bi:paypal" style="color: #428ad3;"></span> Paypal
+        </a></p> -->
+        <p class="ssl____commerz mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><a href="#">Withdraw</a></p>    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="" method="POST">
+         {% csrf_token %}
+          <div class="text-center"><h4>Withdraw From Here</h4></div>
+          <div class="main__content">
+          <div class="dropdown payment___drop">
+            <label>Payment: </label>
+            <select class="form-select amount__input__style1" aria-label="Default select example" name="method">
+              <option selected>Open this select menu</option>
+              {% for wm in withdraw_methods %}
+                <option value="{{ wm.method_name }}">{{ wm.method_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="mb-2 amount__input">
+            <label>Amount: </label>
+            <input type="number" id="inputnew" name='obtmarks[]' class="form-control amount__input__style" placeholder="type amount here.." 
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number"
+            maxlength = "1000"
+            onblur="getVal()"
+            required><br>
+            
+          </div>
+          <div id="div1" class="text-center"></div>
+        </div>
+          <div class="payment__submit__button d-flex justify-content-center">
+            <button class="submit__button">Submit</button>
+          </div>
+         
+        </form>
+      </div>
+    </div>
+  </div>
+</div>    
+    </div>
+
+    <!--<div class="withdraw__option">-->
+    <!--    <p class="mx-1">SHOW</p>-->
+    <!--    <p class="mx-1"><div class="dropdown">-->
+    <!--        <button class="dropdown___button btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+    <!--          USED FOR PURCHASES-->
+    <!--        </button>-->
+    <!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">EVERYTHING</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">WITHDRAWN</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">PENDING CLEAERENCE</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">CANCEL REVENUES</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">CLEARED</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">USED FOR PURCHASES</a></li>-->
+    <!--        </ul>-->
+    <!--      </div></p>-->
+    <!--      <p class="mx-1"><div class="dropdown">-->
+    <!--        <button class="dropdown___button btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+    <!--          2021-->
+    <!--        </button>-->
+    <!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">2021</a></li>-->
+    <!--        </ul>-->
+    <!--      </div></p>-->
+    <!--      <p class="mx-1"><div class="dropdown">-->
+    <!--        <button class="dropdown___button btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+    <!--          ALL MONTH-->
+    <!--        </button>-->
+    <!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">JAN</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">FEB</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">MAR</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">APR</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">MAY</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">JUNE</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">JUL</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">AUG</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">SEP</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">OCT</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">NOV</a></li>-->
+    <!--          <li><a class="dropdown-item btn-sm" href="#">DEC</a></li>-->
+    <!--        </ul>-->
+    <!--      </div></p>-->
+    <!--</div>-->
+
+    <!-- export to csv -->
+    <!--<div class="export__csv m-2">-->
+    <!--    <p><a href="#">Export to CSV</a></p>-->
+    <!--</div>-->
+
+    <!-- transaction table -->
+      <div class="table-responsive manage__orderTable">
+        <table class="table table-hover bg-white">
+          <thead>
+            <tr>
+              <th scope="col" class="text-muted ps-3">DATE</th>
+              <th scope="col" class="text-muted ps-3">BUYER NAME</th>
+              <th scope="col" class="text-muted">ORDER STATUS</th>
+              <th scope="col" class="text-muted">AMOUNT SPENT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if orders_by_seller %}
+              {% for order in orders_by_seller %}
+              <tr>
+                <td>{{ order.created_at }}</td>
+                <td>{{ order.user }}</td>
+                <td>{{ order.order_status }}</td>
+                <td>{{ order.total }} BDT.</td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <p>No Orders Found!</p>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+{% include 'buyingview/buying_footer.html' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="{% static 'js/earnings.js' %}"></script>
+
+{% endblock %}
+

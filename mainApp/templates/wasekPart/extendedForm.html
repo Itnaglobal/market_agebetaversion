@@ -1,0 +1,64 @@
+
+{% extends "accountview/base.html" %} 
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/extendedForm.css' %}">
+
+
+<div class="main-extended-form">
+
+<div id="login">
+    <form>
+      <h1>Extended User</h1>
+
+    <div class="username">
+      <input type="text" placeholder="" value="Rabbith Alam" readonly>
+    </div>
+
+    <div class="contact">
+      <input type="text" placeholder="Contact no" value="">
+    </div>
+
+    <div class="contry">
+        <select name="" id="">
+            <option value="">Choose your country</option>
+            <option value="">Bangladesh</option>
+            <option value="">Canada</option>
+            <option value="">Brazil</option>
+            <option value="">Austia</option>
+        </select>
+    </div>
+
+    <div class="city">
+        <select name="" id="">
+            <option value="">Choose your city</option>
+            <option value="">Dhaka</option>
+            <option value="">Torento</option>
+            <option value="">ssdd</option>
+            <option value="">Austia</option>
+        </select>
+    </div>
+
+    <div class="submit-btn">
+        <button type="button">Confirm</button>
+    </div>
+
+
+    </form>
+  </div>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,6 @@
+{% autoescape off %}
+    Hi {{ user.username }}
+    Thanks for registration on our website. You will have to verify your email.
+    To Verify your email click on this link below 
+    http://{{ domain }}{% url 'activate_account' uidb64=uid token=token %}
+{% endautoescape %}

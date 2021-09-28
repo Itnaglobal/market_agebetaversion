@@ -1,0 +1,934 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+
+
+<head>
+
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
+
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  
+
+  <link rel="shortcut icon" href="{% static 'images/Favicon-color-round.png' %}" />
+
+  
+
+
+
+  <!--category wise view-->
+
+  
+
+
+
+  <!-- Iconify -->
+
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+
+
+  <style>
+
+    *{
+
+        font-family: 'poppins', sans-serif;
+
+    }
+
+    .sticky{
+
+        background: #fff;
+
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    }
+
+
+
+    .sticky ul li a{
+
+        color: #000 !important;
+
+    }
+
+    .sticky a{
+
+        color: #000 !important;
+
+    }
+
+
+
+    @media (max-width:990px){
+
+        .trustedByText{
+
+            display: none;
+
+        }
+
+    }
+
+    @media (max-width:380px){
+
+        .overlay-text h2{
+
+            margin-top: -50px;
+
+        }
+
+        .trusted{
+
+                width: 100%;
+
+                 margin-left: 0px;
+
+        }
+
+    }
+
+     @media (max-width:325px){
+
+        .overlay-text h2{
+
+            margin-top: -70px;
+
+        }
+
+    }
+
+  </style>
+
+
+
+  <title>Marketage</title>
+
+</head>
+
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-dark desktop__navbar">
+
+    <div class="container">
+
+      <a class="navbar-brand new_________nav______logo" href="{% url 'get_landing_page' %}">Marketage.</a>
+
+      <!-- {% for logo in main_logo %}
+
+      <a class="navbar-brand navbarNewIcon" href="{% url 'get_landing_page' %}"><img src="{{ logo.logo_img.url }}" alt=""></a>
+
+      {% endfor %} -->
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item new_____nav____link">
+
+            <a id="myBtn" class="nav-link" href="#">Reimble</a>
+
+
+
+            <!-- The Modal -->
+
+<div id="myModal" class="modal ">
+
+
+
+    <!-- Modal content -->
+  
+    <div class="modal-content ">
+  
+      <span class="close">&times;</span>
+  
+      <img src="{% static 'images/coming-soon.jpg' %}">
+  
+    </div>
+  
+  
+  
+  </div>
+          </li>
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link" href="#">Hire Us</a>
+
+          </li>
+
+          {% comment %} statement {% endcomment %}
+
+
+
+        {% if not request.session.user %}
+
+        
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link"  href="#">Become a seller</a>
+
+            
+
+            
+
+
+
+
+
+          </li>
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          <li class="nav-item new_____nav____link">
+
+            <a class="nav-link" href="{% url 'user_login' %}">Sign In</a>
+
+          </li>
+
+          <a type="button" class="btn fw-bold btn-outline-light text-white join___button" href="{% url 'user_registration' %}">Join</a>
+
+          {% else %}
+
+          <li class="nav-item">
+
+            <a class="nav-link" href="{% url 'buying_view' %}">Swtich To Buying View</a>
+
+          </li>
+
+          {% endif %}
+
+          {% comment %} statement {% endcomment %}
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- Mobile navbar section starts -->
+
+  <nav class="mobile__navbar">
+
+    <div class="hamburger__menu">
+
+      <span class="iconify" data-icon="radix-icons:hamburger-menu" data-inline="false"></span>
+
+    </div>
+
+    <div class="logo__img">
+
+      <a class="new_________nav______logo__mobile" href="{% url 'get_landing_page' %}">Marketage.
+
+        <!--<img src="{% static 'images/marketage.png' %}" alt="">-->
+
+      </a>
+
+    </div>
+
+    <div class="signin__page">
+
+      <a href="{% url 'user_registration' %}">Join</a>
+
+    </div>
+
+
+
+    <!-- For fixed black background -->
+
+    <div class="bg__fixed"></div>
+
+    <div class="mobile__navLinks">
+
+      <div class="nav__close">
+
+            <span class="iconify" data-icon="carbon:close-outline" data-inline="false"></span>
+
+        </div>
+
+      <ul>
+
+        <div class="logo__img">
+
+          <a new_________nav href=""
+
+          style="    font-family: 'Lobster', cursive;
+
+    color: #000;
+
+    font-size: 26px;
+
+    font-weight: 700;"
+
+          >Marketage.
+
+            <!--<img src="{% static 'images/marketage.png' %}" alt="">-->
+
+          </a>
+
+        </div>
+
+        <li class="mb-4">
+
+          <a class="join__btn" href="{% url 'user_registration' %}">
+
+            Join Marketage
+
+          </a>
+
+        </li>
+
+        <li>
+
+          <a href="{% url 'user_login' %}">Sign In</a>
+
+        </li>
+
+        <li class="browse__categories">
+
+                          <button class="collapsible text-muted">Browse Categories</button>
+
+                      <div class="content">
+
+                           <button class="collapsible text-muted browse___button">Graphics & Design</button>
+
+                                <div class="content">
+
+                                    <ul>
+
+                                        <li><a href="#">Logo Design</a>
+
+                                            </li>
+
+                                            <li><a href="#">Brand Style Guides</a></li>
+
+                                        <li><a href="#">Game Art</a></li>
+
+                                        <li><a href="#">Graphics for Streamers</a></li>
+
+                                        <li><a href="#">Business Cards & Stationery</a></li>
+
+                                        <li><a href="#">Website Design</a></li>
+
+                                        <li><a href="#">App Design</a></li>
+
+                                        <li><a href="#">UX Design</a></li>
+
+                                        <li><a href="#">Landing Page Design</a></li>
+
+                                        <li><a href="#">Resume Design</a></li>
+
+                                        <li><a href="#">Illustration</a></li>
+
+                                        <li><a href="#">Pattern Design</a></li>
+
+                                        <li><a href="#">Brochure Design</a></li>
+
+                                        <li><a href="#">Poster Design</a></li>
+
+                                        <li><a href="#">Flyer Design</a></li>
+
+                                        <li><a href="#">Book Design</a></li>
+
+                                        <li><a href="#">Album Cover Design</a></li>
+
+                                        <li><a href="#">Podcast Cover Art</a></li>
+
+                                        <li><a href="#">Packaging Design</a></li>
+
+                                        <li><a href="#">AR Filters & Lenses</a></li>
+
+                                        <li><a href="#">Storyboards</a></li>
+
+                                        <li><a href="#">Social Media Design</a></li>
+
+                                        <li><a href="#">Postcard Design</a></li>
+
+                                        <li><a href="#">Catalog Design</a></li>
+
+                                        <li><a href="#">Menu Design</a></li>
+
+                                        <li><a href="#">Invitation Design</a></li>
+
+                                        <li><a href="#">Portraits & Caricatures</a></li>
+
+                                        <li><a href="#">Cartoons & Comics</a></li>
+
+                                        <li><a href="#">Tattoo Design</a></li>
+
+                                        <li><a href="#">Signage Design</a></li>
+
+                                        <li><a href="#">Web Banners</a></li>
+
+                                        <li><a href="#">Photoshop Editing</a></li>
+
+                                        <li><a href="#">Photoshop Editing</a></li>
+
+                                        <li><a href="#">Landscape Design</a></li>
+
+                                        <li><a href="#">Building Information Modeling</a></li>
+
+                                        <li><a href="#">Character Modeling</a></li>
+
+                                        <li><a href="#">Industrial & Product Design</a></li>
+
+                                        <li><a href="#">Trade Booth Design</a></li>
+
+                                        <li><a href="#">T-Shirts & Merchandise</a></li>
+
+                                        <li><a href="#">Fashion Design</a></li>
+
+                                        <li><a href="#">Jewelry Design</a></li>
+
+                                        <li><a href="#">Presentation Design</a></li>
+
+                                        <li><a href="#">Email Design</a></li>
+
+                                        <li><a href="#">Icon Design</a></li>
+
+                                        <li><a href="#">Infographic Design</a></li>
+
+                                        <li><a href="#">Car Wraps</a></li>
+
+                                        <li><a href="#">Vector Tracing</a></li>
+
+                                        <li><a href="#">Twitch Store</a></li>
+
+                                        <li><a href="#">Other</a></li>
+
+                                        <li><a href="#">All in Graphics & Design</a></li>
+
+                                        </ul>
+
+                                    </div>
+
+                           
+
+                           
+
+                           <button class="collapsible text-muted browse___button">Digital Marketing</button>
+
+                           <div class="content">
+
+                               <ul>
+
+                                   <li><a href="#">Social Media Advertising</a></li>
+
+                                   <li><a href="#">Social Media Marketing</a></li>
+
+                                   <li><a href="#">Search Engine Optimization (SEO)</a></li>
+
+                                   <li><a href="#">Public Relations</a></li>
+
+                                   <li><a href="#">Content Marketing</a></li>
+
+                                   <li><a href="#">Book & eBook Marketing</a></li>
+
+                                   <li><a href="#">Podcast Marketing</a></li>
+
+                                   <li><a href="#">Video Marketing</a></li>
+
+                                   <li><a href="#">Email Marketing</a></li>
+
+                                   <li><a href="#">Text Message Marketing</a></li>
+
+                                   <li><a href="#">Crowdfunding</a></li>
+
+                                   <li><a href="#">Search Engine Marketing (SEM)</a></li>
+
+                                   <li><a href="#">Display Advertising</a></li>
+
+                                   <li><a href="#">Marketing Strategy</a></li>
+
+                                   <li><a href="#">Web Analytics</a></li>
+
+                                   <li><a href="#">Influencer Marketing</a></li>
+
+                                   <li><a href="#">Community Management</a></li>
+
+                                    <li><a href="#">Local SEO</a></li>
+
+                                     <li><a href="#">E-Commerce Marketing</a></li>
+
+                                      <li><a href="#">Affiliate Marketing</a></li>
+
+                                       <li><a href="#">Mobile App Marketing</a></li>
+
+                                        <li><a href="#">Music Promotion</a></li>
+
+                                         <li><a href="#">Web Traffic</a></li>
+
+                                          <li><a href="#">Other</a></li>
+
+                                          <li><a href="#">All in Digital Marketing</a></li>
+
+                                
+
+                               </ul>
+
+                               </div>
+
+                           
+
+                           
+
+                           <button class="collapsible text-muted browse___button">Writing & Translation</button>
+
+                           <div class="content">
+
+                               <ul>
+
+                                   <li><a href="#">Articles & Blog Posts</a></li>
+
+                                   <li><a href="#">Proofreading & Editing</a></li>
+
+                                   <li><a href="#">Translation</a></li>
+
+                                   <li><a href="#">Website Content</a></li>
+
+                                   <li><a href="#">Product Descriptions</a></li>
+
+                                   <li><a href="#">Book & eBook Writing</a></li>
+
+                                   <li><a href="#">Book Editing</a></li>
+
+                                   <li><a href="#">Resume Writing</a></li>
+
+                                   <li><a href="#">Brand Voice & Tone</a></li>
+
+                                   <li><a href="#">UX Writing</a></li>
+
+                                   <li><a href="#">Email Copy</a></li>
+
+                                   <li><a href="#">Technical Writing</a></li>
+
+                                   <li><a href="#">White Papers</a></li>
+
+                                   <li><a href="#">Sales Copy</a></li>
+
+                                   <li><a href="#">Social Media Copy</a></li>
+
+                                   <li><a href="#">Podcast Writing</a></li>
+
+                                   <li><a href="#">Ad Copy</a></li>
+
+                                   <li><a href="#">Cover Letters</a></li>
+
+                                   <li><a href="#">Press Releases</a></li>
+
+                                   <li><a href="#">Case Studies</a></li>
+
+                                   <li><a href="#">LinkedIn Profiles</a></li>
+
+                                   <li><a href="#">Job Descriptions</a></li>
+
+                                   <li><a href="#">Creative Writing</a></li>
+
+                                   <li><a href="#">Beta Reading</a></li>
+
+                                   <li><a href="#">Scriptwriting</a></li>
+
+                                   <li><a href="#">Business Names & Slogans</a></li>
+
+                                   <li><a href="#">eLearning Content Development</a></li>
+
+                                   <li><a href="#">Speechwriting</a></li>
+
+                                   <li><a href="#">Legal Writing</a></li>
+
+                                   <li><a href="#">Grant Writing</a></li>
+
+                                   <li><a href="#">Transcripts</a></li>
+
+                                   <li><a href="#">Research & Summaries</a></li>
+
+                                   <li><a href="#">Other</a></li>
+
+                                   <li><a href="#">All in Writing & Translation</a></li>
+
+                               </ul>
+
+                               </div>
+
+                           
+
+                           
+
+                            <button class="collapsible text-muted browse___button">Video & Animation</button>
+
+                            <div class="content">
+
+                                <ul>
+
+                                    <li><a href="#">Whiteboard & Animated Explainers</a></li>
+
+                                    <li><a href="#">Video Editing</a></li>
+
+                                    <li><a href="#">Short Video Ads</a></li>
+
+                                    <li><a href="#">Animated GIFs</a></li>
+
+                                    <li><a href="#">Logo Animation</a></li>
+
+                                    <li><a href="#">Intros & Outros</a></li>
+
+                                    <li><a href="#">Character Animation</a></li>
+
+                                    <li><a href="#">3D Product Animation</a></li>
+
+                                    <li><a href="#">Lyric & Music Videos</a></li>
+
+                                    <li><a href="#">Animation for Kids</a></li>
+
+                                    <li><a href="#">Animation for Streamers</a></li>
+
+                                    <li><a href="#">Live Action Explainers</a></li>
+
+                                    <li><a href="#">E-Commerce Product Videos</a></li>
+
+                                    <li><a href="#">Spokespersons Videos</a></li>
+
+                                    <li><a href="#">Subtitles & Captions</a></li>
+
+                                    <li><a href="#">Visual Effects</a></li>
+
+                                    <li><a href="#">Lottie & Website Animation</a></li>
+
+                                    <li><a href="#">eLearning Video Production</a></li>
+
+                                    <li><a href="#">Article to Video</a></li>
+
+                                    <li><a href="#">Unboxing Videos</a></li>
+
+                                    <li><a href="#">Screencasting Videos</a></li>
+
+                                    <li><a href="#">Corporate Videos</a></li>
+
+                                    <li><a href="#">Crowdfunding Videos</a></li>
+
+                                    <li><a href="#">Slideshow Videos</a></li>
+
+                                    <li><a href="#">App & Website Previews</a></li>
+
+                                    <li><a href="#">Drone Videography</a></li>
+
+                                    <li><a href="#">Book Trailers</a></li>
+
+                                    <li><a href="#">Real Estate Promos</a></li>
+
+                                    <li><a href="#">Game Trailers</a></li>
+
+                                    <li><a href="#">Product Photography</a></li>
+
+                                    <li><a href="#">Local Photography</a></li>
+
+                                    <li><a href="#">Other</a></li>
+
+                                    <li><a href="#">All in Video & Animation</a></li>
+
+                                </ul>
+
+                                </div>
+
+                            
+
+                            
+
+                             <button class="collapsible text-muted browse___button">Music & Audio</button>
+
+                             <div class="content">
+
+                                 <ul>
+
+                                     <li><a href="#">Voice Over</a></li>
+
+                                     <li><a href="#">Mixing & Mastering</a></li>
+
+                                     <li><a href="#">Producers & Composers</a></li>
+
+                                     <li><a href="#">Singers & Vocalists</a></li>
+
+                                     <li><a href="#">Session Musicians</a></li>
+
+                                     <li><a href="#">Songwriters</a></li>
+
+                                     <li><a href="#">Beat Making</a></li>
+
+                                     <li><a href="#">Online Music Lessons</a></li>
+
+                                     <li><a href="#">Podcast Editing</a></li>
+
+                                     <li><a href="#">Audiobook Production</a></li>
+
+                                      <li><a href="#">Audio Ads Production</a></li>
+
+                                       <li><a href="#">Sound Design</a></li>
+
+                                        <li><a href="#">Dialogue Editing</a></li>
+
+                                         <li><a href="#">Music Transcription</a></li>
+
+                                          <li><a href="#">Vocal Tuning</a></li>
+
+                                           <li><a href="#">DJ Drops & Tags</a></li>
+
+                                            <li><a href="#">DJ Mixing</a></li>
+
+                                             <li><a href="#">Remixing & Mashups</a></li>
+
+                                              <li><a href="#">Synth Presets</a></li>
+
+                                               <li><a href="#">Meditation Music</a></li>
+
+                                                <li><a href="#">Jingles & Intros</a></li>
+
+                                                 <li><a href="#">Other</a></li>
+
+                                                  <li><a href="#">All in Music & Audio</a></li>
+
+                                         
+
+                                     </ul>
+
+                                 </div>
+
+                             
+
+                             
+
+                              <button class="collapsible text-muted browse___button">Programming & Tech</button>
+
+                              <div class="content">
+
+                                  <ul>
+
+                                      <li><a href="#">WordPress</a></li>
+
+                                      <li><a href="#">Website Builders & CMS</a></li>
+
+                                      <li><a href="#">Game Development+</a></li>
+
+                                      <li><a href="#">Development for Streamers</a></li>
+
+                                      <li><a href="#">Web Programming</a></li>
+
+                                      <li><a href="#">E-Commerce Development</a></li>
+
+                                      <li><a href="#">Mobile Apps</a></li>
+
+                                      <li><a href="#">Desktop Applications</a></li>
+
+                                      <li><a href="#">Blockchain & Cryptocurrency</a></li>
+
+                                      <li><a href="#">Cybersecurity & Data Protection</a></li>
+
+                                      <li><a href="#">Support & IT</a></li>
+
+                                      <li><a href="#">Online Coding Lessons</a></li>
+
+                                      <li><a href="#">Chatbots</a></li>
+
+                                      <li><a href="#">Convert Files</a></li>
+
+                                      <li><a href="#">User Testing</a></li>
+
+                                      <li><a href="#">QA & Review</a></li>
+
+                                      <li><a href="#">Other</a></li>
+
+                                      <li><a href="#">All in Programming & Tech</a></li>
+
+                                      <li><a href="#">Website Development</a></li>
+
+                                  </ul>
+
+                                  </div>
+
+                              
+
+                              
+
+                               <button class="collapsible text-muted browse___button">Data</button>
+
+                                <div class="content">
+
+                                    <ul>
+
+                                        <li><a href="#">Databases</a></li>
+
+                                        <li><a href="#">Data Processing</a></li>
+
+                                        <li><a href="#">Data Engineering</a></li>
+
+                                       
+
+                                    </ul>
+
+                                    </div>
+
+                               
+
+                               
+
+                                <button class="collapsible text-muted browse___button">Business</button>
+
+                                <div class="content">
+
+                                    <ul>
+
+                                        <li><a href="#">Virtual Assistant</a></li>
+
+                                        <li><a href="#">Market Research</a></li>
+
+                                        <li><a href="#">Business Plans</a></li>
+
+                                       
+
+                                    </ul>
+
+                                    </div>
+
+                                
+
+                                
+
+                                 <button class="collapsible text-muted browse___button">Lifestyle</button>
+
+                                 <div class="content">
+
+                                    <ul>
+
+                                        <li><a href="#">Gaming</a></li>
+
+                                        <li><a href="#">Life Coaching</a></li>
+
+                                        <li><a href="#">Modeling & Acting</a></li>
+
+                                       
+
+                                    </ul>
+
+                                    </div>
+
+                                 
+
+                                 
+
+                        </div>
+
+        </li>
+
+
+
+    
+
+      </ul>
+
+
+
+      <ul>
+
+        <li>
+
+          <p>General</p>
+
+          <hr>
+
+        </li>
+
+        <li>
+
+          <a href="{% url 'get_landing_page' %}">Home</a>
+
+        </li>
+
+        <!--<li class="browse__cat cat__alt">-->
+
+        <!--  <div>English <span class="iconify" data-icon="bi:globe" data-inline="false"></span></div>-->
+
+        <!--  <div><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></div>-->
+
+        <!--</li>-->
+
+        <!--<li class="browse__cat cat__alt">-->
+
+        <!--  <div>USD - $</div>-->
+
+        <!--  <div><span class="iconify" data-icon="dashicons:arrow-down-alt2" data-inline="false"></span></div>-->
+
+        <!--</li>-->
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- Mobile navbar section ends -->
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  <script src="{% static 'js/mobile_navbar.js' %}"></script>
+
+  
